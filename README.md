@@ -62,4 +62,39 @@ cd ast2600-default
 
 qemu-system-arm -M ast2600-evb -drive file=obmc-phosphor-image-ast2600-default.static.mtd,format=raw,if=mtd -nographic
 ```
+## Qemu_IBM 
+-[Qemu IBM](https://github.com/legoater/qemu.git)
 
+```shell
+git clone https://github.com/legoater/qemu.git qemu-ibm
+cd qemu-ibm
+
+sudo apt-get install flex
+
+./configure
+
+./configure --target-list=arm-softmmu,arm-linux-user
+
+make
+
+make -j 4
+
+sudo make install
+
+qemu-system-arm --version
+
+wget https://jenkins.openbmc.org/job/ci-openbmc/lastSuccessfulBuild/distro=ubuntu,label=docker-builder,target=romulus/artifact/openbmc/build/tmp/deploy/images/romulus/obmc-phosphor-image-romulus-20250625062256.static.mtd
+
+qemu-system-arm -M romulus-bmc -nic user -drive file=obmc-phosphor-image-romulus-20250625062256.static.mtd,format=raw,if=mtd -nographic
+
+
+wget https://github.com/AspeedTech-BMC/openbmc/releases/download/v09.06/ast2600-default-obmc-sdk.tar.gz
+
+sudo chmod u+x ast2600-default-obmc-sdk.tar.gz
+
+tar -xvzf ast2600-default-obmc-sdk.tar.gz
+
+cd ast2600-default-sdk/
+
+qemu-system-arm -M ast2600-evb -drive file=obmc-phosphor-image-ast2600-default.static.mtd,format=raw,if=mtd -nographic
+```
