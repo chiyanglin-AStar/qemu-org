@@ -16,7 +16,23 @@ sudo apt-get install flex
 ./configure
 
 ./configure --target-list=arm-softmmu,arm-linux-user
+```
+if still not work , get source :
+```shell 
+wget https://download.gnome.org/sources/glib/2.66/glib-2.66.7.tar.xz
 
+tar xf glib-2.66.7.tar.xz
+
+cd glib-@GLIB_VERSION@
+
+meson _build
+
+ninja -C _build
+
+sudo ninja -C _build install
+
+```
+```
 make
 
 make -j 4
