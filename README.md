@@ -3,6 +3,10 @@
 -[qemu ref](https://www.qemu.org/download/#source)
 
 ```shell
+sudo apt install git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zstd lz4 bzip2 ninja-build
+```
+
+```shell
 wget https://download.qemu.org/qemu-10.0.2.tar.xz
 tar xvJf qemu-10.0.2.tar.xz
 cd qemu-10.0.2
