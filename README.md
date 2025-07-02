@@ -89,13 +89,13 @@ use
 ./configure --enable-slirp --enable-debug
 
 ```
-
+or use apt-get install libslirp0 libslirp-dev
 ### aspeed sdk image
 [the operation ref of qemu on aspeed](https://www.qemu.org/docs/master/system/arm/aspeed.html)
 
 
 ```shell
-wget https://github.com/AspeedTech-BMC/openbmc/releases/ast2600-default-ncsi-obmc.tar.gz
+wget https://github.com/AspeedTech-BMC/openbmc/releases/download/v09.07/ast2600-default-obmc.tar.gz
 
 sudo chmod u+x ast2600-default-obmc.tar.gz
 
@@ -131,13 +131,13 @@ wget https://jenkins.openbmc.org/job/ci-openbmc/lastSuccessfulBuild/distro=ubunt
 qemu-system-arm -M romulus-bmc -nic user -drive file=obmc-phosphor-image-romulus-20250625062256.static.mtd,format=raw,if=mtd -nographic
 
 
-wget https://github.com/AspeedTech-BMC/openbmc/releases/download/v09.06/ast2600-default-obmc-sdk.tar.gz
+wget https://github.com/AspeedTech-BMC/openbmc/releases/download/v09.06/ast2600-default-obmc.tar.gz
 
-sudo chmod u+x ast2600-default-obmc-sdk.tar.gz
+sudo chmod u+x ast2600-default-obmc.tar.gz
 
-tar -xvzf ast2600-default-obmc-sdk.tar.gz
+tar -xvzf ast2600-default-obmc.tar.gz
 
-cd ast2600-default-sdk/
+cd ast2600-default/
 
 qemu-system-arm -M ast2600-evb -drive file=obmc-phosphor-image-ast2600-default.static.mtd,format=raw,if=mtd -nographic
 ```
