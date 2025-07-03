@@ -26,7 +26,9 @@ tar xf glib-2.66.7.tar.xz
 
 cd glib-@GLIB_VERSION@
 
-## change to root to do the following steps 
+## change to root to do the following steps
+pip3 install meson
+
 meson _build
 
 ninja -C _build
