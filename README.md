@@ -7,6 +7,15 @@ sudo apt install git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zst
 pip3 install tomli
 pip3 install meson==0.63
 
+#include <stdio.h>
+
+int main()
+{
+    printf("Hello World");
+
+    return 0;
+}
+
 ```
 
 ```shell
