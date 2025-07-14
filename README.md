@@ -2,6 +2,12 @@
 
 -[qemu ref](https://www.qemu.org/download/#source)
 
+```c 
+sudo apt install git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zstd lz4 bzip2 ninja-build libglib2.0-dev libpixman-1-dev python3 python3-pip flex bison
+pip3 install tomli
+pip3 install meson==0.63
+```
+
 ```shell
 sudo apt install git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zstd lz4 bzip2 ninja-build libglib2.0-dev libpixman-1-dev python3 python3-pip flex bison
 pip3 install tomli
