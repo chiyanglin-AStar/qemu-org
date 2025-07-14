@@ -17,7 +17,68 @@ int main()
 }
 
 ```
-## test end
+### 🧪 C Program to Test a Character Device Driver
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <string.h>
+
+void dump(const char *label, const char *buf, int size) {
+    printf("%s", label);
+    for (int i = 0; i < size; i++) {
+        printf("%02x ", buf[i]);
+    }
+    printf("\n");
+}
+
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <device_file>\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    const char *device = argv[1];
+    char buf[] = "DUMMY DATA";
+    int fd = open(device, O_RDWR);
+    if (fd < 0) {
+        perror("open");
+        return EXIT_FAILURE;
+    }
+
+    printf("Device %s opened successfully.\n", device);
+
+    // Write to device
+    ssize_t written = write(fd, buf, sizeof(buf));
+    if (written < 0) {
+        perror("write");
+        close(fd);
+        return EXIT_FAILURE;
+    }
+    printf("Wrote %zd bytes to %s\n", written, device);
+    dump("Data written: ", buf, written);
+
+    // Read from device
+    char read_buf[64] = {0};
+    ssize_t read_bytes = read(fd, read_buf, sizeof(read_buf));
+    if (read_bytes < 0) {
+        perror("read");
+        close(fd);
+        return EXIT_FAILURE;
+    }
+    printf("Read %zd bytes from %s\n", read_bytes, device);
+    dump("Data read: ", read_buf, read_bytes);
+
+    close(fd);
+    return EXIT_SUCCESS;
+}
+```
+
+### 🛠️ How to Use
+
 ```shell
 sudo apt install git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zstd lz4 bzip2 ninja-build libglib2.0-dev libpixman-1-dev python3 python3-pip flex bison
 pip3 install tomli
