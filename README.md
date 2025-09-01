@@ -1,5 +1,11 @@
 ## qemu-org 
 
+### issue -- [2600 mmc image can't boot](https://github.com/openbmc/openbmc/issues/3818)
+
+    [ref1](https://github.com/openbmc/qemu/pull/35)
+
+    [ref2](https://github.com/openbmc/qemu/pull/35/commits/ce780d3787828d2058028d0b019ee7c9d640ff54)
+
 -[qemu ref](https://www.qemu.org/download/#source)
 
 ```shell
