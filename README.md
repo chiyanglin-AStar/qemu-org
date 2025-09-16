@@ -150,3 +150,13 @@ cd ast2600-default/
 
 qemu-system-arm -M ast2600-evb -drive file=obmc-phosphor-image-ast2600-default.static.mtd,format=raw,if=mtd -nographic
 ```
+
+#### if qemu version is going wrong , you could need
+
+```shell
+git checkout v10.0.2
+
+./configure --enable-slirp --target-list=arm-softmmu,arm-linux-user
+
+make -j 4
+```
