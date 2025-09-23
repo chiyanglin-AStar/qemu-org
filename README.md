@@ -160,3 +160,12 @@ git checkout v10.0.2
 
 make -j 4
 ```
+## for aarch64 
+
+```shell
+
+./configure  --enable-slirp  --target-list=aarch64-softmmu,arm-linux-user
+
+make -j 8 
+
+```
